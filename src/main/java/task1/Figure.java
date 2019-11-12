@@ -1,6 +1,6 @@
 package task1;
 
-public abstract class Figure {
+public abstract class Figure implements Material {
     /**
      * Calculation of the area of a shape.
      *
@@ -22,7 +22,7 @@ public abstract class Figure {
      */
     @Override
     public String toString() {
-        return "\n" + this.getClass().getSimpleName();
+        return this.getClass().getSimpleName();
     }
 }
 

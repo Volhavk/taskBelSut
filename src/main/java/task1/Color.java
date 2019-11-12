@@ -20,7 +20,4 @@ public enum Color {
         this.color = color;
     }
 
-    //    public static List<Color> getAllTypes() {
-//        return Stream.of(Color.values()).collect(Collectors.toList());
-//    }
 }

@@ -1,11 +1,8 @@
 package task1;
 
-public interface Paper {
+public interface Paper extends Material{
 
-    public String paper = "paper";
+    Color paint(Color color);
 
-    default Color color(){
-        return Color.valueOf(color().getColor());
-    }
-
+    Color getColor();
 }

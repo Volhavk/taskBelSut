@@ -1,4 +1,4 @@
 package task1;
 
-public interface Plastic {
+public interface Plastic extends Material{
 }
