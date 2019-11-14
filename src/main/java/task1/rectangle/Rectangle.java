@@ -26,7 +26,7 @@ public abstract class Rectangle extends Figure {
 
     public Rectangle(Material material) {
         area = ((Figure) material).getArea() / 2;
-        perimeter = ((Figure) material).getPerimeter() / 2;
+//        perimeter = ((Figure) material).getPerimeter() / 2;
 
     }
 
@@ -45,7 +45,6 @@ public abstract class Rectangle extends Figure {
         return "it's paper rectangle with area = " + area;
     }
 
-
     @Override
     public int hashCode() {
         return super.hashCode();
@@ -55,6 +54,8 @@ public abstract class Rectangle extends Figure {
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
+
+
 
     public static class PaperRectangle extends Rectangle implements Paper {
 
