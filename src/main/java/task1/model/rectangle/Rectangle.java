@@ -1,9 +1,9 @@
-package task1.rectangle;
+package task1.model.rectangle;
 
-import task1.Color;
-import task1.Figure;
-import task1.Material;
-import task1.Paper;
+import task1.model.Color;
+import task1.model.Figure;
+import task1.materials.Material;
+import task1.materials.Paper;
 
 
 public abstract class Rectangle extends Figure {
@@ -12,7 +12,7 @@ public abstract class Rectangle extends Figure {
     private int width;
     private double area;
     private double perimeter;
-    private static Color color;
+    private static Color color = null;
 
     public Rectangle(int length, int width) {
         this.length = length;
@@ -25,9 +25,8 @@ public abstract class Rectangle extends Figure {
     }
 
     public Rectangle(Material material) {
-        area = ((Figure) material).getArea() / 2;
-//        perimeter = ((Figure) material).getPerimeter() / 2;
-
+        area = ((Figure) material).getArea() / 3;
+        perimeter = ((Figure) material).getPerimeter() / 2;
     }
 
     @Override
@@ -42,7 +41,12 @@ public abstract class Rectangle extends Figure {
 
     @Override
     public String toString() {
-        return "it's paper rectangle with area = " + area;
+        return "Rectangle{" +
+                "length=" + length +
+                ", width=" + width +
+                ", area=" + area +
+                ", perimeter=" + perimeter +
+                '}';
     }
 
     @Override
@@ -54,7 +58,6 @@ public abstract class Rectangle extends Figure {
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
-
 
 
     public static class PaperRectangle extends Rectangle implements Paper {

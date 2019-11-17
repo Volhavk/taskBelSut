@@ -1,18 +1,30 @@
 package task1;
 
-import task1.rectangle.PlasticRectangle;
-import task1.rectangle.Rectangle;
+import task1.model.Color;
+import task1.model.circle.PlasticCircle;
+import task1.model.rectangle.Rectangle;
+import task1.model.triangle.Triangle;
 
 public class Runner {
     public static void main(String[] args) {
-        Rectangle.PaperRectangle paperRectangle = new Rectangle.PaperRectangle(10,20);
-        paperRectangle.paint(Color.RED);
+        Rectangle.PaperRectangle paperRectangle = new Rectangle.PaperRectangle(10, 20);
+        Triangle.PaperTriangle paperTriangle = new Triangle.PaperTriangle(paperRectangle);
+        PlasticCircle plasticCircle = new PlasticCircle(15);
+        Box box = new Box();
         paperRectangle.paint(Color.GREEN);
         System.out.println(paperRectangle.getColor());
-        System.out.println(paperRectangle.getArea());
+        box.addFigure(paperRectangle);
+        box.addFigure(paperTriangle);
+        box.addFigure(plasticCircle);
+        box.getFigure(0);
+        box.replaceFigure(1, paperRectangle);
+        box.getNumberOfFigures();
+        box.findFigureWithParameters(200, 60);
+        box.getAllCircles();
 
-        Rectangle.PaperRectangle paperRectangle1 = new Rectangle.PaperRectangle(paperRectangle);
-        System.out.println(paperRectangle1.getArea());
-        System.out.println(paperRectangle1.getColor());
+        System.out.println(box.getAllFigures());
+        System.out.println("Total area is " + box.getTotalAres());
+        System.out.println("Total perimiter is " + box.getTotalPerimeter());
+
     }
 }

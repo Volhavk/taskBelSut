@@ -1,9 +1,9 @@
-package task1.triangle;
+package task1.model.triangle;
 
-import task1.Color;
-import task1.Figure;
-import task1.Material;
-import task1.Paper;
+import task1.model.Color;
+import task1.model.Figure;
+import task1.materials.Material;
+import task1.materials.Paper;
 
 public abstract class Triangle extends Figure {
 
@@ -11,20 +11,20 @@ public abstract class Triangle extends Figure {
     private static Color color = null;
     private double perimeter;
     private double baseOfTriangle;
-    private double side1;
-    private double side2;
+
     private double height;
 
 
-    public Triangle(double baseOfTriangle, double height, double side1, double side2) {
+    public Triangle(double baseOfTriangle, double height) {
         this.baseOfTriangle = baseOfTriangle;
         this.height = height;
         this.area = baseOfTriangle * height / 2;
-        this.perimeter = baseOfTriangle + side1 + side2;
+        this.perimeter = baseOfTriangle * 3;
     }
 
     public Triangle(Material material) {
-        area = ((Figure) material).getArea() / 2;
+        area = ((Figure) material).getArea() / 3;
+        perimeter = ((Figure) material).getPerimeter() / 2;
     }
 
     @Override
@@ -39,7 +39,12 @@ public abstract class Triangle extends Figure {
 
     @Override
     public String toString() {
-        return "it's paper triangle with area = " + area;
+        return "Triangle{" +
+                "area=" + area +
+                ", perimeter=" + perimeter +
+                ", baseOfTriangle=" + baseOfTriangle +
+                ", height=" + height +
+                '}';
     }
 
     @Override
@@ -54,6 +59,10 @@ public abstract class Triangle extends Figure {
 
 
     public static class PaperTriangle extends Triangle implements Paper {
+
+        public PaperTriangle(double baseOfTriangle, double height) {
+            super(baseOfTriangle, height);
+        }
 
         public PaperTriangle(Paper paper) {
             super(paper);

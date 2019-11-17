@@ -1,4 +1,6 @@
-package task1;
+package task1.model;
+
+import task1.materials.Material;
 
 public abstract class Figure implements Material {
     /**

@@ -1,4 +1,4 @@
-package task1;
+package task1.model;
 
 public enum Color {
     ORANGE("orange"),
