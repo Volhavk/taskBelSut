@@ -11,12 +11,15 @@ public class Runner {
         Triangle.PaperTriangle paperTriangle = new Triangle.PaperTriangle(paperRectangle);
         PlasticCircle plasticCircle = new PlasticCircle(15);
         Box box = new Box();
+
         paperRectangle.paint(Color.GREEN);
         System.out.println(paperRectangle.getColor());
+
         box.addFigure(paperRectangle);
         box.addFigure(paperTriangle);
         box.addFigure(plasticCircle);
         box.getFigure(0);
+
         box.replaceFigure(1, paperRectangle);
         box.getNumberOfFigures();
         box.findFigureWithParameters(200, 60);

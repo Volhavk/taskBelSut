@@ -5,6 +5,8 @@ import task1.model.Figure;
 import task1.materials.Material;
 import task1.materials.Paper;
 
+import java.util.Objects;
+
 
 public abstract class Rectangle extends Figure {
 
@@ -19,9 +21,6 @@ public abstract class Rectangle extends Figure {
         this.width = width;
         this.area = length * width;
         this.perimeter = (length + width) * 2;
-//        if (rectangle.getArea() < 0) {
-//            System.out.println("Impossible to cut");
-//        }
     }
 
     public Rectangle(Material material) {
@@ -50,15 +49,20 @@ public abstract class Rectangle extends Figure {
     }
 
     @Override
-    public int hashCode() {
-        return super.hashCode();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Rectangle rectangle = (Rectangle) o;
+        return length == rectangle.length &&
+                width == rectangle.width &&
+                Double.compare(rectangle.area, area) == 0 &&
+                Double.compare(rectangle.perimeter, perimeter) == 0;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public int hashCode() {
+        return Objects.hash(length, width, area, perimeter);
     }
-
 
     public static class PaperRectangle extends Rectangle implements Paper {
 
