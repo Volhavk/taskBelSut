@@ -17,8 +17,15 @@ public class Box {
         }
     }
 
+    private void checkForDuplicates(Figure figure) {
+        if (listOfFigures.stream().anyMatch(figure1 -> figure.equals(figure1))) {
+            throw new RuntimeException("Duplicate");
+        }
+    }
+
     public void addFigure(Figure figure) {
         checkCapacity();
+        checkForDuplicates(figure);
         listOfFigures.add(figure);
     }
 
@@ -36,12 +43,13 @@ public class Box {
         return figure;
     }
 
-    public void findFigureWithParameters(double area, double perimeter) {
+    public Figure findFigureWithParameters(double area, double perimeter) {
         for (Figure figure : listOfFigures) {
             if (figure.getArea() == area && figure.getPerimeter() == perimeter) {
-                System.out.println(figure);
+                return figure;
             }
-            }
+        }
+        return null;
     }
 
     public int getNumberOfFigures() {
