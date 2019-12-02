@@ -16,7 +16,6 @@ public abstract class Figure implements Material {
      * @return the perimeter of a shape.
      */
     public abstract double getPerimeter();
-
     /**
      * Created String for a shape.
      *
