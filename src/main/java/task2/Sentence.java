@@ -11,7 +11,7 @@ public class Sentence {
     private List<Punctuation> punctuations = new ArrayList<>();
 
     public Sentence(String sentence) {
-        words = Stream.of(sentence.split("[[ ]*|[,]*|[:]*|[/]*|[—]*|[+]*]+"))
+        words = Stream.of(sentence.split("[[ ]*|[,]*|[:]|[/]*|[—]*|[+]*]+"))
                 .map(word -> new Word(word))
                 .collect(Collectors.toList());
 
