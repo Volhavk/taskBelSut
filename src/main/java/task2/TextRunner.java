@@ -1,22 +1,14 @@
 package task2;
 
+import static task2.SourceString.SOURCE_TEXT;
+
 public class TextRunner {
 
     public static void main(String[] args) {
 
-            Word word = new Word("quote");
-            Text text = new Text(word);
+            Text text = new Text(SOURCE_TEXT);
 
-            Word word1 = new Word("abr");
-            Word word2 = new Word("abrr");
-            Word word3 = new Word("abrrvalg");
-
-            Sentence phrase = new Sentence();
-            phrase.addValue(word1);
-            phrase.addValue(word2);
-            phrase.addValue(word3);
-
-            System.out.println(phrase.getValue());
+            text.getSentences();
 
         }
     }
