@@ -15,8 +15,8 @@ public class Runner {
         paperRectangle.paint(Color.GREEN);
         System.out.println(paperRectangle.getColor());
 
-        box.addFigure(paperRectangle);
-        box.addFigure(paperTriangle);
+//        box.addFigure(paperRectangle);
+//        box.addFigure(paperTriangle);
         box.addFigure(plasticCircle);
         box.getFigure(0);
 
