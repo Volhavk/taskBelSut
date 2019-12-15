@@ -17,17 +17,20 @@ public class Runner {
 
 //        box.addFigure(paperRectangle);
 //        box.addFigure(paperTriangle);
-        box.addFigure(plasticCircle);
-        box.getFigure(0);
+//        box.addFigure(plasticCircle);
+//        box.getFigure(0);
+//
+//        box.replaceFigure(1, paperRectangle);
+//        box.getNumberOfFigures();
+//        box.findFigureWithParameters(200, 60);
+//        box.getAllCircles();
+//
+//        System.out.println(box.getAllFigures());
+//        System.out.println("Total area is " + box.getTotalAres());
+//        System.out.println("Total perimiter is " + box.getTotalPerimeter());
 
-        box.replaceFigure(1, paperRectangle);
-        box.getNumberOfFigures();
-        box.findFigureWithParameters(200, 60);
-        box.getAllCircles();
-
-        System.out.println(box.getAllFigures());
-        System.out.println("Total area is " + box.getTotalAres());
-        System.out.println("Total perimiter is " + box.getTotalPerimeter());
+        FileHandler.saveToFile(box);
+        Box restored = FileHandler.loadFromFile();
 
     }
 }

@@ -3,11 +3,12 @@ package task1;
 import task1.model.circle.Circle;
 import task1.model.Figure;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Box {
+public class Box implements Serializable {
 
     private List<Figure> listOfFigures = new ArrayList<>(20);
 
