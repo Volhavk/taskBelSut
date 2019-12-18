@@ -12,7 +12,7 @@ public abstract class Rectangle extends Figure {
 
     private int length;
     private int width;
-    private double area;
+    private static double area;
     private double perimeter;
     private static Color color = null;
 

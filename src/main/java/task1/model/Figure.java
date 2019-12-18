@@ -2,7 +2,11 @@ package task1.model;
 
 import task1.materials.Material;
 
-public abstract class Figure implements Material {
+import java.io.Serializable;
+
+public abstract class Figure implements Material, Serializable {
+
+    private static final long serialVersionUID = 2L;
     /**
      * Calculation of the area of a shape.
      *

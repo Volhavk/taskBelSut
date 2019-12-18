@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 
 public class Box implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private List<Figure> listOfFigures = new ArrayList<>(20);
 
     private void checkCapacity() {

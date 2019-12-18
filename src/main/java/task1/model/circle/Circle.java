@@ -11,7 +11,7 @@ public abstract class Circle extends Figure {
 
     private static Color color = null;
     private double radius;
-    private double perimeter;
+    transient double perimeter;
     private double area;
 
     public Circle(double radius) {

@@ -4,28 +4,27 @@ import java.io.*;
 
 public class FileHandler {
 
-    public static final String FILE_PATH = "data.bin";
+    public static final String FILE_PATH = "/Users/volha_kumakova/Desktop/untitled folder/data";
 
     public static void saveToFile(Box box) {
-        File file = new File(FILE_PATH);
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file))) {
-            oos.writeObject(file);
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_PATH))) {
+            oos.writeObject(box);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }catch (IOException e){
-            throw new NullPointerException();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     public static Box loadFromFile() {
         Box box = null;
-        File file = new File(FILE_PATH);
-        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file))) {
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(FILE_PATH))) {
             box = (Box) inputStream.readObject();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            throw new IllegalArgumentException();
-        } return box;
+            e.printStackTrace();
+        }
+        return box;
     }
 }
