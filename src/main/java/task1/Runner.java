@@ -5,38 +5,27 @@ import task1.model.circle.PlasticCircle;
 import task1.model.rectangle.Rectangle;
 import task1.model.triangle.Triangle;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 public class Runner {
     public static void main(String[] args) throws IOException {
         Rectangle.PaperRectangle paperRectangle = new Rectangle.PaperRectangle(10, 20);
-        Triangle.PaperTriangle paperTriangle = new Triangle.PaperTriangle(paperRectangle);
+        Rectangle.PaperRectangle paperRectangle1 = new Rectangle.PaperRectangle(10, 20);
         PlasticCircle plasticCircle = new PlasticCircle(15);
         Box box = new Box();
-        Box box2 = new Box();
 
-//        paperRectangle.paint(Color.GREEN);
-//        System.out.println(paperRectangle.getColor());
-//
         box.addFigure(paperRectangle);
         box.addFigure(plasticCircle);
-//        box.addFigure(plasticCircle);
-//        box.getFigure(0);
-//
-//        box.replaceFigure(1, paperRectangle);
-//        box.getNumberOfFigures();
-//        box.findFigureWithParameters(200, 60);
-//        box.getAllCircles();
-//
-//        System.out.println(box.getAllFigures());
-//        System.out.println("Total area is " + box.getTotalAres());
-//        System.out.println("Total perimeter is " + box.getTotalPerimeter());
+
+        box.addFigure(paperRectangle1);
+
+        box.removeFigure(-1);
 
         FileHandler.saveToFile(box);
-        FileHandler.saveToFile(box2);
-        FileHandler.loadFromFile(); //perimeter of circles is transient; area of rectangles is static
-
+        try {
+            FileHandler.loadBoxesFromFile(); //perimeter of circles is transient; area of rectangles is static
+        } catch (EOFException exc) {
+            System.out.println("End of file reached");
+        }
     }
 }

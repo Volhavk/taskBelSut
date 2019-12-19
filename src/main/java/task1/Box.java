@@ -1,5 +1,9 @@
 package task1;
 
+import task1.exception.CapacityReachedException;
+import task1.exception.DuplicateFoundException;
+import task1.exception.MyException;
+import task1.exception.FigureNotFoundByIndexException;
 import task1.model.circle.Circle;
 import task1.model.Figure;
 
@@ -16,13 +20,13 @@ public class Box implements Serializable {
 
     private void checkCapacity() {
         if (listOfFigures.size() == 20) {
-            throw new RuntimeException("capacity limit reached");
+            throw new CapacityReachedException("capacity limit reached");
         }
     }
 
-    private void checkForDuplicates(Figure figure) {
+    private void checkForDuplicates(Figure figure) throws MyException {
         if (listOfFigures.stream().anyMatch(figure1 -> figure.equals(figure1))) {
-            throw new RuntimeException("Duplicate");
+            throw new DuplicateFoundException("Duplicate");
         }
     }
 
@@ -37,6 +41,9 @@ public class Box implements Serializable {
     }
 
     public void removeFigure(int index) {
+        if (index > listOfFigures.size() || index < 0) {
+            throw new FigureNotFoundByIndexException("Index can not be negative");
+        }
         listOfFigures.remove(index);
     }
 
