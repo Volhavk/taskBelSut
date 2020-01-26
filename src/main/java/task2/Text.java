@@ -1,34 +1,37 @@
 package task2;
 
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class Text {
 
     private List<Sentence> sentences;
+    private List<String> sourceSentence;
 
     public Text(String text) {
-//        sentences = Stream.of(text.split("(?<=[.|!|?])"))
-//                .map(sentence -> new Sentence(sentence))
-//                .collect(Collectors.toList());
-        Matcher matcher = Pattern.compile("([^.!?]+[.!?])").matcher(text);
-        while (matcher.find())
-        System.out.println(matcher.group(1));
+        sentences = Stream.of(text.split("(?<=[.|!|?])"))
+                .map(sentence -> new Sentence(sentence))
+                .collect(Collectors.toList());
+        sourceSentence = Stream.of(text.split("(?<=[.|!|?])"))
+                .collect(Collectors.toList());
     }
 
     public List<Sentence> getSentences() {
         return sentences;
     }
 
-    public void deleteFirstLetter() {
-        Sentence sentence = sentences.stream()
-                .filter(sent -> sent.getPunctuations()
-                        .stream()
-                        .anyMatch(punctuation -> punctuation.getPunctuationMark().equals("?")))
-                .findFirst()
-                .orElseThrow(()-> new NoSuchElementException("No question marks"));
+//    public void deleteFirstLetter() {
+//        Sentence sentence = sentences.stream()
+//                .filter(sent -> sent.getPunctuations()
+//                        .stream()
+//                        .anyMatch(punctuation -> punctuation.getPunctuationMark().equals("?")))
+//                .findFirst()
+//                .orElseThrow(()-> new NoSuchElementException("No question marks"));
+//    }
+
+    public List<String> getSourceSentence() {
+        return sourceSentence;
     }
 }
