@@ -6,9 +6,10 @@ import task1.model.rectangle.Rectangle;
 import task1.model.triangle.Triangle;
 
 import java.io.*;
+import java.sql.SQLException;
 
 public class Runner {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException, ClassNotFoundException {
         Rectangle.PaperRectangle paperRectangle = new Rectangle.PaperRectangle(10, 20);
         Rectangle.PaperRectangle paperRectangle1 = new Rectangle.PaperRectangle(10, 20);
         PlasticCircle plasticCircle = new PlasticCircle(15);
@@ -27,5 +28,6 @@ public class Runner {
         } catch (EOFException exc) {
             System.out.println("End of file reached");
         }
+
     }
 }
