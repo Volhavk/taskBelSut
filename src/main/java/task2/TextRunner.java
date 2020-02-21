@@ -3,7 +3,6 @@ package task2;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class TextRunner {
